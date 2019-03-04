@@ -35,10 +35,16 @@
 			<version>5.1.9</version>
 		</dependency>
 
+		<!-- 热部署模块 -->
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-devtools</artifactId>
+		  <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+		</dependency>
 	</dependencies>
 
-	<!--maven的插件 -->
 	<build>
+		<!--maven的插件 -->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

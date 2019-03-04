@@ -16,9 +16,16 @@ public class UserService implements IUserService{
 	IUserDao userDao;
 
 	@Override
-	public List<Map<String, Object>> getUserInfo() {
+	public List<Map<String, Object>> getUserInfo(Map<String, String> map) {
 
-		return userDao.getUserInfo();
+		return userDao.getUserInfo(map);
+	}
+
+	@Override
+	public void addUser(Map<String, Object> map) {
+
+		userDao.addUser(map);
+		
 	}
 
 }

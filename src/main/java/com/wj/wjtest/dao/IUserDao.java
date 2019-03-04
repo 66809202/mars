@@ -7,5 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface IUserDao {
-	List<Map<String, Object>> getUserInfo();
+	List<Map<String, Object>> getUserInfo(Map<String, String> map);
+	void addUser(Map<String, Object> map);
 }

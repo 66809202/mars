@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<form ng-submit="submitForm()" ng-controller="userController">
+    姓名:<input type="text" ng-model="user.name"/> <br/>
+    年龄:<input type="text" ng-model="user.age"/> <br/>
+    性别:<select type="text" ng-model="user.sex">
+    	<option value="0">男</option>
+    	<option value="1">女</option>
+    </select> <br/>
+    电话:<input type="text" ng-model="user.telephone"/> <br/>
+    账号:<input type="text" ng-model="user.account"/> <br/>
+    密码:<input type="text" ng-model="user.password"/> <br/>
+    <button type="submit">submit</button>
+</form>
+<script>
+var app = angular.module("myApp",[]);
+    app.controller('userController',function ($scope,$http) {
+        $scope.submitForm = function () {
+            $http({
+                method:'post',
+                url:'/wjtest/addUser',
+                dataType:'json',
+                //headers : { 'Content-Type': 'application/x-www-form-urlencoded' },
+                data:$scope.user
+            });
+        }
+    });
+</script>
+</body>
+</html>

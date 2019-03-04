@@ -8,5 +8,7 @@ public interface IUserService {
 	 * 查询user信息
 	 * @return List
 	 */
-	List<Map<String, Object>> getUserInfo();
+	List<Map<String, Object>> getUserInfo(Map<String, String> map);
+	
+	void addUser(Map<String, Object> map);
 }
