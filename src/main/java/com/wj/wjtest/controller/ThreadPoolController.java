@@ -1,10 +1,15 @@
 package com.wj.wjtest.controller;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.wj.wjtest.serviceImpl.UserService;
 /**
  * @RestController 比 @Controller 多了个 @ResponseBody
  * 
@@ -18,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ThreadPoolController {
+	@Autowired
+	UserService userService;
 
 	@RequestMapping("/poolTest")
 	public void testThreadPool() {
@@ -39,5 +46,10 @@ public class ThreadPoolController {
 			});
 			System.out.println("正在活跃的线程有 " + pool.getActiveCount() + " 个");
 		}
+	}
+	
+	@RequestMapping("/springPool")
+	public List<Map<String, Object>> springThreadPoolTest() {
+		return userService.springPoolTest();
 	}
 }

@@ -1,5 +1,6 @@
 package com.wj.wjtest.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,9 @@ public class UserService implements IUserService{
 	
 	@Autowired
 	IUserDao userDao;
+	
+	@Autowired
+	AsyncTest asyncTest;
 
 	@Override
 	public List<Map<String, Object>> getUserInfo(Map<String, String> map) {
@@ -27,5 +31,14 @@ public class UserService implements IUserService{
 		userDao.addUser(map);
 		
 	}
+	
+	
+	public List<Map<String, Object>> springPoolTest() {
+		//，调用@Async配置的异步方法
+		asyncTest.holdon();
+		return userDao.getUserInfo(new HashMap<String, String>());
+	} 
+	
+
 
 }
