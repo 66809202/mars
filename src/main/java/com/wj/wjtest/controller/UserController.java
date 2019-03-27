@@ -23,6 +23,16 @@ public class UserController {
 	
 	@Autowired
 	IUserService userService;
+	
+	int i = 0;
+	
+	//访问计数
+	@RequestMapping(value = "/count", method = RequestMethod.GET)
+	public int count() {
+		i ++;
+		
+		return i;
+	}
 
 	@RequestMapping(value = "/getUserInfo/{name}", method = RequestMethod.GET)
 	public List<Map<String, Object>> getUserInfo(@PathVariable String name) {
